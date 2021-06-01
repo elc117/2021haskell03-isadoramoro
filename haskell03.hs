@@ -50,10 +50,13 @@ calcExpr :: [Float] -> [Float]
 calcExpr lis = filter (> 10) [x^2/2 | x <- lis]
 
 -- 13)
---trSpaces :: String -> String
+trSpaces :: String -> String
+trSpaces s = [if x == ' ' then '-' else x | x <- s]
 
 -- 14)
---selectSnd :: [(Int,Int)] -> [Int]
+selectSnd :: [(Int,Int)] -> [Int]
+selectSnd tps  = [y | (x, y) <- tps]
 
 -- 15)
---dotProd :: [Int] -> [Int] -> Int
+dotProd :: [Int] -> [Int] -> Int
+dotProd lisA lisB = foldl (+) 0 (zipWith (*) [a | a <- lisA, even a][b | b <- lisB, even b])
